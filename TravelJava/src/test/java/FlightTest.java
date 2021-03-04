@@ -37,7 +37,7 @@ public class FlightTest {
 
         @Test
         public void hasDepartureAirport(){
-            assertEquals(AirportCode.JFK, flight.getDepartureAirport());
+            assertEquals(AirportCode.LAX, flight.getDepartureAirport());
         }
 
         @Test
@@ -47,24 +47,24 @@ public class FlightTest {
 
         @Test
         public void canCheckRemainingSeats(){
-            assertEquals(3, flight.getRemainingSeats());
+            assertEquals(10, flight.getRemainingSeats());
         }
 
         @Test
         public void canBookPassenger(){
             flight.addPassengerToFlight(passenger);
-            assertEquals(3, flight.getNumberOfPassengers());
+            assertEquals(1, flight.getNumberOfPassengers());
         }
 
         @Test
         public void canGenerateSeatNumbers(){
-            assertEquals(3, flight.getSeatNumbers().size());
+            assertEquals(10, flight.getSeatNumbers().size());
         }
 
         @Test
         public void canAllocateSeatNumbers(){
             flight.allocateSeatNumber(passenger);
             assertNotNull(passenger.getSeatNumber());
-            assertEquals(0, flight.getSeatNumbers().size());
+            assertEquals(9, flight.getSeatNumbers().size());
         }
 }
